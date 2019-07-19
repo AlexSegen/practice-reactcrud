@@ -28,6 +28,19 @@ export default {
             return error
         }
     },
+
+    async updateUser(identifier, payload) {
+        try {
+            const response = await $http.patch(`/users/${identifier}`, payload);
+            const data = await response.data
+
+            return data
+        } catch (error) {
+            console.log('Error fetching user', error)
+            return error
+        }
+    },
+
     async delete(identifier) {
         try {
             const response = await $http.delete(`/users/${identifier}`);

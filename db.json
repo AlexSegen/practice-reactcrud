@@ -2,7 +2,7 @@
   "users": [
     {
       "id": 1,
-      "name": "Leanne Graham",
+      "name": "Leanne Graham22",
       "username": "Bret",
       "email": "Sincere@april.biz",
       "address": {
@@ -25,7 +25,7 @@
     },
     {
       "id": 3,
-      "name": "Clementine Bauch",
+      "name": "Clementine Bauch Trigger",
       "username": "Samantha",
       "email": "Nathan@yesenia.net",
       "address": {
@@ -44,7 +44,8 @@
         "name": "Romaguera-Jacobson",
         "catchPhrase": "Face to face bifurcated interface",
         "bs": "e-enable strategic applications"
-      }
+      },
+      "usename": "Samanthaa"
     },
     {
       "id": 4,
@@ -136,29 +137,6 @@
         "name": "Yost and Sons",
         "catchPhrase": "Switchable contextually-based project",
         "bs": "aggregate real-time technologies"
-      }
-    },
-    {
-      "id": 10,
-      "name": "Clementina DuBuque",
-      "username": "Moriah.Stanton",
-      "email": "Rey.Padberg@karina.biz",
-      "address": {
-        "street": "Kattie Turnpike",
-        "suite": "Suite 198",
-        "city": "Lebsackbury",
-        "zipcode": "31428-2261",
-        "geo": {
-          "lat": "-38.2386",
-          "lng": "57.2232"
-        }
-      },
-      "phone": "024-648-3804",
-      "website": "ambrose.net",
-      "company": {
-        "name": "Hoeger LLC",
-        "catchPhrase": "Centralized empowering task-force",
-        "bs": "target end-to-end models"
       }
     }
   ]

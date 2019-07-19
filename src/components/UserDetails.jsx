@@ -24,12 +24,30 @@ class UserDetails extends Component {
 		}
 	};
 
+	setUser = async () => {
+		try {
+			const user = await usersService.updateUser(this.props.match.params.id, this.state.form);
+			this.setState({ form: user });
+			return user;
+		} catch (error) {
+			return error;
+		}
+	};
+
+	handleChange = (event) => {
+		const { name, value } = event.target;
+
+		this.setState({
+			form: { ...this.state.form, [name]: value }
+		});
+	};
+
 	componentDidMount() {
 		this.getUser(this.props.match.params.id);
 	}
 
 	render() {
-		const { form } = this.state;
+		const { name, email, username, phone } = this.state.form;
 		return (
 			<React.Fragment>
 				<h1>User details</h1> <hr />
@@ -41,7 +59,7 @@ class UserDetails extends Component {
 							type="text"
 							placeholder="Text input"
 							name="name"
-							value={form.name}
+							value={name}
 							onChange={this.handleChange}
 						/>
 					</div>
@@ -51,10 +69,10 @@ class UserDetails extends Component {
 					<div className="control has-icons-left has-icons-right">
 						<input
 							name="usename"
-							className="input is-success"
+							className="input"
 							type="text"
 							placeholder="Text input"
-							value={form.username}
+							value={username}
 							onChange={this.handleChange}
 						/>
 						<span className="icon is-small is-left">
@@ -64,17 +82,16 @@ class UserDetails extends Component {
 							<i className="fas fa-check" />
 						</span>
 					</div>
-					<p className="help is-success">This username is available</p>
 				</div>
 				<div className="field">
 					<label className="label">Email</label>
 					<div className="control has-icons-left has-icons-right">
 						<input
-							className="input is-danger"
+							className="input"
 							name="email"
 							type="email"
 							placeholder="Email input"
-							value={form.email}
+							value={email}
 							onChange={this.handleChange}
 						/>
 						<span className="icon is-small is-left">
@@ -84,7 +101,6 @@ class UserDetails extends Component {
 							<i className="fas fa-exclamation-triangle" />
 						</span>
 					</div>
-					<p className="help is-danger">This email is invalid</p>
 				</div>
 				<div className="field">
 					<label className="label">Phone</label>
@@ -94,14 +110,16 @@ class UserDetails extends Component {
 							type="text"
 							name="phone"
 							placeholder="Text input"
-							value={form.phone}
+							value={phone}
 							onChange={this.handleChange}
 						/>
 					</div>
 				</div>
 				<div className="field is-grouped">
 					<div className="control">
-						<button className="button is-link">Submit</button>
+						<button className="button is-link" type="button" onClick={this.setUser}>
+							Submit
+						</button>
 					</div>
 					<div className="control">
 						<Link className="button is-text" to="/users">

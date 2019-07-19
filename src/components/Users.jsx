@@ -28,14 +28,6 @@ class Users extends Component {
 		}
 	};
 
-	handleChange = (event) => {
-		const { name, value } = event.target;
-
-		this.setState({
-			form: { ...this.state.form, [name]: value }
-		});
-	};
-
 	componentDidMount() {
 		this.getUsers();
 	}
@@ -57,7 +49,7 @@ class Users extends Component {
 					</thead>
 					<tbody>
 						{users.map((user) => (
-							<tr>
+							<tr key={user.id}>
 								<td>
 									<Link to={`/users/${user.id}`}>{user.name}</Link>
 								</td>
