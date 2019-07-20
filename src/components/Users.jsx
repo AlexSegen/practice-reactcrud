@@ -63,6 +63,7 @@ class Users extends Component {
 
   componentDidMount() {
     this.getUsers();
+    console.log(process.env.NODE_ENV);
   }
 
   render() {

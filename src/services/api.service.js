@@ -1,8 +1,13 @@
 import axios from "axios";
 import { toastme } from "toastmejs";
 
+const API_ROOT = "https://jsonplaceholder.typicode.com";
+
 const $http = axios.create({
-  baseURL: "http://localhost:5100",
+  baseURL:
+    process.env.NODE_ENV !== "production"
+      ? process.env.REACT_APP_API_ROOT
+      : API_ROOT,
   timeout: 5000
 });
 
