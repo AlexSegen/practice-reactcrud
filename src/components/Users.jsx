@@ -6,16 +6,25 @@ import usersService from "../services/api.service";
 import UserModal from "./userModal";
 class Users extends Component {
   state = {
+    loading: false,
     users: [],
     modalIsActive: false
   };
 
+  setLoading = () => {
+    let loading = !this.state.loading;
+    this.setState({ loading });
+  };
+
   getUsers = async () => {
+    this.setLoading();
     try {
       const users = await usersService.getAll();
       this.setState({ users });
+      this.setLoading();
       return users;
     } catch (error) {
+      this.setLoading();
       return error;
     }
   };
@@ -57,7 +66,7 @@ class Users extends Component {
   }
 
   render() {
-    const { users } = this.state;
+    const { users, loading } = this.state;
     return (
       <React.Fragment>
         <h1>Users</h1>
@@ -70,6 +79,13 @@ class Users extends Component {
           >
             Add user
           </button>
+          {loading ? (
+            <progress className="progress is-small is-primary" max="100">
+              15%
+            </progress>
+          ) : (
+            ""
+          )}
         </div>
         <table className="table is-hoverable is-fullwidth">
           <thead>
