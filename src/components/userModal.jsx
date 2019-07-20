@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import usersService from "../services/api.service";
 class userModal extends Component {
   initialState = {
+    loading: false,
     form: {
       username: "",
       name: "",
@@ -12,14 +13,22 @@ class userModal extends Component {
 
   state = this.initialState;
 
+  setLoading = () => {
+    let loading = !this.state.loading;
+    this.setState({ loading });
+  };
+
   setUser = async () => {
+    this.setLoading();
     try {
       const user = await usersService.addUser(this.state.form);
       this.setState(this.initialState);
+      this.setLoading();
       this.props.toggleModal();
       this.props.reloadData();
       return user;
     } catch (error) {
+      this.setLoading();
       return error;
     }
   };
@@ -111,7 +120,11 @@ class userModal extends Component {
               <div className="field is-grouped">
                 <div className="control">
                   <button
-                    className="button is-link"
+                    className={
+                      this.state.loading
+                        ? "button is-link is-loading"
+                        : "button is-link"
+                    }
                     type="button"
                     onClick={this.setUser}
                   >
