@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import { toastme } from "toastmejs";
 import usersService from "../services/api.service";
-
+import UsersTable from "./usersTable";
 import UserModal from "./userModal";
 class Users extends Component {
   state = {
@@ -88,36 +87,9 @@ class Users extends Component {
             ""
           )}
         </div>
-        <table className="table is-hoverable is-fullwidth">
-          <thead>
-            <tr>
-              <td>Name</td>
-              <td>Email</td>
-              <td>Phone</td>
-              <td />
-            </tr>
-          </thead>
-          <tbody>
-            {users.map(user => (
-              <tr key={user.id}>
-                <td>
-                  <Link to={`/users/${user.id}`}>{user.name}</Link>
-                </td>
-                <td>{user.email}</td>
-                <td>{user.phone}</td>
-                <td className="has-text-right">
-                  <button
-                    type="button"
-                    className="button is-danger"
-                    onClick={() => this.deleteUser(user.id)}
-                  >
-                    Delete
-                  </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+
+        <UsersTable onDelete={this.deleteUser} users={users} />
+
         <UserModal
           isActive={this.state.modalIsActive}
           toggleModal={this.toggleModal}
