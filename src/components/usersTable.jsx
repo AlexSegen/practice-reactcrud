@@ -1,7 +1,14 @@
 import React from "react";
+import utils from "../utils/format";
 import { Link } from "react-router-dom";
 
-const UsersTable = ({ users, onDelete }) => {
+const UsersTable = ({ users, onDelete, loading }) => {
+  if (loading)
+    return (
+      <p>
+        <i className="fa fa-spinner fa-spin is-primary" /> Loading data...
+      </p>
+    );
   if (users.length === 0) return <p>No users found</p>;
 
   return (
@@ -10,7 +17,7 @@ const UsersTable = ({ users, onDelete }) => {
         <tr>
           <td>Name</td>
           <td>Email</td>
-          <td>Phone</td>
+          <td>Created</td>
           <td />
         </tr>
       </thead>
@@ -21,7 +28,7 @@ const UsersTable = ({ users, onDelete }) => {
               <Link to={`/users/${user.id}`}>{user.name}</Link>
             </td>
             <td>{user.email}</td>
-            <td>{user.phone}</td>
+            <td>{utils.formatDateTime(user.createdAt)}</td>
             <td className="has-text-right">
               <button
                 type="button"

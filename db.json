@@ -3,7 +3,7 @@
     {
       "id": 1,
       "name": "Leanne Graham",
-      "username": "Bret",
+      "username": "Bret11",
       "email": "Sincere@april.biz",
       "address": {
         "street": "Kulas Light",
@@ -21,7 +21,9 @@
         "name": "Romaguera-Crona",
         "catchPhrase": "Multi-layered client-server neural-net",
         "bs": "harness real-time e-markets"
-      }
+      },
+      "updatedAt": "2019-07-20T23:34:33-04:00",
+      "createdAt": "2019-07-20T23:22:40-04:00"
     },
     {
       "id": 3,
@@ -45,7 +47,9 @@
         "catchPhrase": "Face to face bifurcated interface",
         "bs": "e-enable strategic applications"
       },
-      "usename": "Samanthaa"
+      "usename": "Samanthaa",
+      "updatedAt": "2019-07-20T23:22:40-04:00",
+      "createdAt": "2019-07-20T23:22:40-04:00"
     },
     {
       "id": 4,
@@ -68,28 +72,45 @@
         "name": "Robel-Corkery",
         "catchPhrase": "Multi-tiered zero tolerance productivity",
         "bs": "transition cutting-edge web services"
-      }
+      },
+      "updatedAt": "2019-07-20T23:22:40-04:00",
+      "createdAt": "2019-07-20T23:22:40-04:00"
     },
     {
       "username": "daniel24",
       "name": "Daniel Escalante",
       "email": "daniel24@mail.com",
       "phone": "935737201",
-      "id": 5
+      "id": 5,
+      "updatedAt": "2019-07-20T23:22:40-04:00",
+      "createdAt": "2019-07-20T23:22:40-04:00"
     },
     {
       "username": "admin",
       "name": "Alejandro Vivas",
       "email": "ajvivas86@gmail.com",
       "phone": "935737207",
-      "id": 6
+      "id": 6,
+      "updatedAt": "2019-07-20T23:22:40-04:00",
+      "createdAt": "2019-07-20T23:22:40-04:00"
     },
     {
       "username": "Creser21",
       "name": "Roderich Creser",
       "email": "Creser32@gmail.com",
       "phone": "365414741",
-      "id": 7
+      "id": 7,
+      "updatedAt": "2019-07-20T23:22:40-04:00",
+      "createdAt": "2019-07-20T23:22:40-04:00"
+    },
+    {
+      "username": "test",
+      "name": "test",
+      "email": "test@mail.com",
+      "phone": "935737207",
+      "createdAt": "2019-07-20T23:31:18-04:00",
+      "updatedAt": "2019-07-20T23:31:18-04:00",
+      "id": 8
     }
   ]
 }

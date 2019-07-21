@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import utils from "../utils/format";
 import usersService from "../services/api.service";
 
 class UserDetails extends Component {
@@ -8,7 +9,9 @@ class UserDetails extends Component {
       username: "",
       name: "",
       email: "",
-      phone: ""
+      phone: "",
+      updatedAt: "",
+      createdAt: ""
     }
   };
 
@@ -50,7 +53,7 @@ class UserDetails extends Component {
   }
 
   render() {
-    const { name, email, username, phone } = this.state.form;
+    const { name, email, username, phone, updatedAt } = this.state.form;
     return (
       <React.Fragment>
         <h1>User details</h1> <hr />
@@ -118,6 +121,9 @@ class UserDetails extends Component {
             />
           </div>
         </div>
+        <div className="field">
+          Last update: {utils.formatDateTime(updatedAt)}
+        </div>
         <div className="field is-grouped">
           <div className="control">
             <button
@@ -130,7 +136,7 @@ class UserDetails extends Component {
           </div>
           <div className="control">
             <Link className="button is-text" to="/users">
-              Cancel
+              Back
             </Link>
           </div>
         </div>

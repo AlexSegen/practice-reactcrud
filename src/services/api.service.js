@@ -1,4 +1,5 @@
 import axios from "axios";
+import moment from "moment";
 import { toastme } from "toastmejs";
 
 const API_ROOT = "https://jsonplaceholder.typicode.com";
@@ -39,6 +40,8 @@ export default {
 
   async addUser(payload) {
     try {
+      payload.createdAt = moment().format();
+      payload.updatedAt = moment().format();
       const response = await $http.post(`/users`, payload);
       const data = await response.data;
       toastme.success("User added");
@@ -52,6 +55,7 @@ export default {
 
   async updateUser(identifier, payload) {
     try {
+      payload.updatedAt = moment().format();
       const response = await $http.patch(`/users/${identifier}`, payload);
       const data = await response.data;
       toastme.success("User updated");

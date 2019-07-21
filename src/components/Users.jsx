@@ -62,7 +62,6 @@ class Users extends Component {
 
   componentDidMount() {
     this.getUsers();
-    console.log(process.env.NODE_ENV);
   }
 
   render() {
@@ -79,16 +78,13 @@ class Users extends Component {
           >
             Add user
           </button>
-          {loading ? (
-            <progress className="progress is-small is-primary" max="100">
-              15%
-            </progress>
-          ) : (
-            ""
-          )}
         </div>
 
-        <UsersTable onDelete={this.deleteUser} users={users} />
+        <UsersTable
+          onDelete={this.deleteUser}
+          users={users}
+          loading={loading}
+        />
 
         <UserModal
           isActive={this.state.modalIsActive}
